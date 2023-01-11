@@ -2,19 +2,35 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor() {
+export default function Editor({
+  title,
+  setTitle,
+  subtitle,
+  setSubtitle,
+  font,
+  setFont,
+  setAlign,
+  text,
+  setText,
+}) {
+  const newTitle = (event) => setTitle(event.target.value);
+  const newSubtitle = (event) => setSubtitle(event.target.value);
+  const newFont = (event) => setFont(event.target.value);
+  const newAlign = (event) => setAlign(event.target.value);
+  const newText = (event) => setText(event.target.value);
+
   return (
     <div className="editor">
       <div className="form-control">
-        <input name="title" type="text" />
+        <input name="title" type="text" value={title} onChange={newTitle} />
         <label htmlFor="title">Title</label>
       </div>
       <div className="form-control">
-        <input type="text" />
+        <input type="text" value={subtitle} onChange={newSubtitle} />
         <label>Subtitle</label>
       </div>
       <div className="form-control">
-        <select>
+        <select value={font} onChange={newFont}>
           <option value="architect">{"Architect's Daughter"}</option>
           <option value="comforter">Comforter</option>
           <option value="fredoka">Fredoka</option>
@@ -28,9 +44,9 @@ export default function Editor() {
       </div>
       <div className="form-control">
         <label>Alignment</label>
-        <div className="radio-group">
+        <div className="radio-group" onChange={newAlign}>
           <label>
-            <input name="align" type="radio" value="left" />
+            <input name="align" type="radio" value="left" defaultChecked />
             <i className="ri-align-left"></i>
           </label>
           <label>
@@ -44,7 +60,7 @@ export default function Editor() {
         </div>
       </div>
       <div className="form-control">
-        <textarea style={{ height: '250px' }} />
+        <textarea style={{ height: '250px' }} value={text} onChange={newText} />
         <label>Text</label>
       </div>
     </div>
