@@ -9,13 +9,15 @@ export default function Editor({
   setSubtitle,
   font,
   setFont,
-  align,
   setAlign,
+  text,
+  setText,
 }) {
   const newTitle = (event) => setTitle(event.target.value);
   const newSubtitle = (event) => setSubtitle(event.target.value);
   const newFont = (event) => setFont(event.target.value);
   const newAlign = (event) => setAlign(event.target.value);
+  const newText = (event) => setText(event.target.value);
 
   return (
     <div className="editor">
@@ -58,7 +60,7 @@ export default function Editor({
         </div>
       </div>
       <div className="form-control">
-        <textarea style={{ height: '250px' }} />
+        <textarea style={{ height: '250px' }} value={text} onChange={newText} />
         <label>Text</label>
       </div>
     </div>
