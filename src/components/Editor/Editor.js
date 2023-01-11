@@ -44,17 +44,17 @@ export default function Editor({
       </div>
       <div className="form-control">
         <label>Alignment</label>
-        <div className="radio-group">
+        <div className="radio-group" onChange={newAlign}>
           <label>
-            <input name="align" type="radio" value="left" onChange={newAlign} />
+            <input name="align" type="radio" value="left" defaultChecked />
             <i className="ri-align-left"></i>
           </label>
           <label>
-            <input name="align" type="radio" value="center" onChange={newAlign} />
+            <input name="align" type="radio" value="center" />
             <i className="ri-align-center"></i>
           </label>
           <label>
-            <input name="align" type="radio" value="right" onChange={newAlign} />
+            <input name="align" type="radio" value="right" />
             <i className="ri-align-right"></i>
           </label>
         </div>
